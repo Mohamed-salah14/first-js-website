@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hello There, Here Is My Simple Basic HTML CSS & Javascript Website, My Name Is Mohamed Salah, I'm A Front End Developer And I Hope You Like My Website" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Contact Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contact">
+      <div class="custom-shape-divider-top-1681168725">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+      <h1>Contact Me<i class="fa-solid fa-phone"></i></h1>
+      <form action="">
+        <input
+          type="text"
+          placeholder="UserName"
+          class="name"
+          name="Name"
+          required
+        />
+        <input
+          type="email"
+          placeholder="Enter Your Email"
+          class="email"
+          name="Email"
+          required
+        />
+        <textarea
+          class="area"
+          name="rating"
+          placeholder="Enter Your Opinion About Our Website"
+          required
+          minlength="10"
+        ></textarea>
+        <input class="sub" type="submit" value="Send" />
+        <div class="results"></div>
+      </form>
+      <a href="index.html"
+        >Return To Home <i class="fa-solid fa-house-chimney-window"></i
+      ></a>
+    </div>
+    <script>
+      const inputs = {
+        name: document.querySelector(".name"),
+        mail: document.querySelector(".email"),
+        textArea: document.querySelector(".area"),
+        results: document.querySelector(".results"),
+        subBtn: document.querySelector(".sub"),
+      };
+      inputs.subBtn.onclick = function (e) {
+        e.preventDefault();
+        inputs.results.innerHTML = "";
+        let txt = document.createTextNode(inputs.name.value);
+        let mail = document.createTextNode(inputs.mail.value);
+        let areaText = document.createTextNode(inputs.textArea.value);
+        let parentTxt = document.createElement("div");
+        parentTxt.appendChild(txt);
+        parentTxt.className = "text";
+        let parentEmail = document.createElement("div");
+        parentEmail.className = "email";
+        parentEmail.appendChild(mail);
+        let parenttextArea = document.createElement("div");
+        parenttextArea.className = "textArea";
+        parenttextArea.appendChild(areaText);
+        if (
+          inputs.name.value != "" &&
+          inputs.mail.value != "" &&
+          inputs.textArea.value != ""
+        ) {
+          inputs.results.appendChild(parentTxt);
+          inputs.results.appendChild(parentEmail);
+          inputs.results.appendChild(parenttextArea);
+          inputs.results.style.cssText =
+            "background-color: white;width: fit-content;padding: 40px;display: flex;flex-direction: column;margin: 10px auto;border-radius: 5px;";
+          document.body.appendChild(inputs.results);
+        } else {
+          alert("You Must Fill The Input Field");
+        }
+      };
+    </script>
+  </body>
+</html>
